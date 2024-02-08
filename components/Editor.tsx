@@ -37,19 +37,19 @@ const Editor = ({ entry }) => {
           <div className="w-[16px] h-[16px] rounded-full bg-green-500"></div>
         )}
       </div>
-      <div className="col-span-2">
+      <div className="col-span-2 prose-p:">
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="w-full h-full text-xl p-8"
+          className="w-full h-full p-8 bg-[--surface-0]"
         />
       </div>
       <div className="border-l border-black/5">
         <div
           style={{ background: currentEntry.analysis?.color }}
-          className="h-[100px] bg-blue-600 text-white p-8"
+          className="h-[100px] bg-blue-600 p-8"
         >
-          <h2 className="text-2xl bg-white/25 text-black">Analysis</h2>
+          <h2 className="m-0">Analysis</h2>
         </div>
         <div>
           <ul role="list" className="divide-y divide-gray-200">
@@ -73,7 +73,7 @@ const Editor = ({ entry }) => {
               <button
                 onClick={handleDelete}
                 type="button"
-                className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
               >
                 Delete
               </button>
