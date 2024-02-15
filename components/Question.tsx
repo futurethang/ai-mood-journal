@@ -1,6 +1,8 @@
 'use client'
 
 import { askQuestion } from '@/util/api'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react'
 
 const Question = () => {
@@ -19,12 +21,12 @@ const Question = () => {
   }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="flex justify-between gap-2">
         <input
           type="text"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
-          className="border border-gray-300 rounded-md p-2 text-lg"
+          className="w-10/12 border border-gray-300 rounded-md p-2 text-lg"
           disabled={loading}
           placeholder="Ask a question..."
         />
@@ -37,7 +39,18 @@ const Question = () => {
         </button>
       </form>
       {loading && <p>Loading...</p>}
-      {answer && <p className="my-4 text-xl">{answer}</p>}
+      {answer && (
+        <div className="flex flex-col items-start">
+          <p className="my-4 text-xl">{answer}</p>
+          <button
+            aria-label="clear answer"
+            className="text-red-400"
+            onClick={() => setAnswer(null)}
+          >
+            clear
+          </button>
+        </div>
+      )}
     </div>
   )
 }

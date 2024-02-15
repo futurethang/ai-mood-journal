@@ -27,15 +27,14 @@ const JournalPage = async () => {
   const data = await getEntries()
   return (
     <div className="px-6 py-8 bg-zinc-100/50 h-full">
-      <h1 className="text-4xl mb-12">Journals</h1>
-      <div className="my-8">
+      <div className="mb-4 w-full">
         <Question />
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="flex flex-col gap-4">
         <NewEntry />
         {data.map((entry) => (
           <div key={entry.id}>
-            <Link href={`/journal/${entry.id}`}>
+            <Link href={`/journal/${entry.id}`} className="no-underline">
               <EntryCard entry={entry} />
             </Link>
           </div>
