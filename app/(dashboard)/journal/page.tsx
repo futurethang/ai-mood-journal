@@ -26,7 +26,7 @@ const getEntries = async () => {
 const JournalPage = async () => {
   const data = await getEntries()
   return (
-    <div className="px-6 py-8 bg-zinc-100/50 h-full">
+    <div className="px-6 py-8 bg-[--surface-0] h-full">
       <div className="mb-4 w-full">
         <Question />
       </div>

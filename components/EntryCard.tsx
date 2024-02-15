@@ -48,7 +48,7 @@ const EntryCard = ({ entry }: { entry: Entry }) => {
   }
 
   return (
-    <div className="divide-y divide-[--divider] overflow-hidden rounded-lg bg-[--surface-1] shadow">
+    <div className="divide-y divide-[--divider] overflow-hidden rounded-lg bg-[--surface-2] shadow">
       <div className="px-4 py-3 sm:px-6 flex justify-between">
         {formattedDate}
         {getMoodIcon(entry.analysis ? entry.analysis.mood : '--')}

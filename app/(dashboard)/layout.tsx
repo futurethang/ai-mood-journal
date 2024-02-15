@@ -33,7 +33,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <div className="w-screen h-screen relative">
-      <header className="p-4 w-full flex justify-between items-center">
+      <header className="p-4 w-full flex justify-between items-center bg-[--surface-1]">
         <h1 className="m-0">Mood</h1>
         <nav className="px-4 h-full">
           <div className="flex gap-4 items-center justify-end h-full">
@@ -60,7 +60,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
       <div className="h-full w-full">
         <div className="">{children}</div>
       </div>
-      <footer className="fixed left-0 bottom-0 w-full bg-[--surface-2]">
+      <footer className="fixed left-0 bottom-0 w-full bg-[--surface-1]">
         <nav className="p-4 flex justify-between items-center">
           <ul className="p-0 m-0 flex gap-4">
             {links.map((link) => (
