@@ -12,19 +12,35 @@ const links = [
 ]
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState(() => {
+    // Get theme from local storage or fallback to 'light'
+    const savedTheme = localStorage.getItem('theme')
+    if (savedTheme) {
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+      return savedTheme
+    } else {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark')
+        return 'dark'
+      } else {
+        document.documentElement.classList.remove('dark')
+        return 'light'
+      }
+    }
+  })
 
   useEffect(() => {
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
+    // Update local storage whenever theme changes
+    localStorage.setItem('theme', theme)
+    if (theme === 'dark') {
       document.documentElement.classList.add('dark')
     } else {
       document.documentElement.classList.remove('dark')
     }
-    localStorage.theme = theme
   }, [theme])
 
   const toggleTheme = () => {
@@ -44,7 +60,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
             <label className="relative inline-flex items-center cursor-pointer">
               <input
                 type="checkbox"
-                value={theme === 'dark' ? 'on' : 'off'}
+                checked={theme === 'light'}
                 className="sr-only peer"
                 onChange={toggleTheme}
               />
