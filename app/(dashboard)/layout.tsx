@@ -74,7 +74,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
         </nav>
       </header>
       <div className="h-full w-full">
-        <div className="">{children}</div>
+        <div className="h-full">{children}</div>
       </div>
       <footer className="fixed left-0 bottom-0 w-full bg-[--surface-1]">
         <nav className="p-4 flex justify-between items-center">
