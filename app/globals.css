@@ -2,3 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  --text: #000000;
+  --surface-0: #ffffff;
+  --surface-1: #dedede;
+  --surface-2: #cfcfcf;
+  --divider: #b9b9b9;
+}
+
+.dark body {
+  --text: #ffffff;
+  --surface-0: #212121;
+  --surface-1: #414141;
+  --surface-2: #616161;
+  --divider: #3f3f3f;
+}
+
+body {
+  background-color: var(--surface-0);
+  color: var(--text);
+}
